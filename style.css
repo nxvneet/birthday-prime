@@ -1,0 +1,15 @@
+.special-txt{
+    font-style: italic;
+}
+input{
+    margin: 1rem;
+    height: auto;
+    width: 50%;
+    display: block;
+}
+#btn-result{
+    margin: 1rem;
+}
+#output{
+    margin: 1rem;
+}
