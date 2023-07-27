@@ -35,6 +35,7 @@ input {
 
 #output {
     margin: 1rem;
+    text-align: center;
 }
 
 .prime-txt {
@@ -42,6 +43,7 @@ input {
     font-weight: bold;
     color: #84cc16;
     padding: 4px;
+    text-align: center;
 }
 
 .not-prime-txt {
@@ -49,6 +51,7 @@ input {
     font-weight: bold;
     color: red;
     padding: 4px;
+    text-align: center;
 }
 
 @media only screen and (max-width: 600px) {

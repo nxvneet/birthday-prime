@@ -15,8 +15,8 @@
 
     <div class="inputs-div">
 
-        <input id="u_name" placeholder="Enter username" type="text">
-        <input id="u_dob" placeholder="Enter your date of birth in 'DD/MM' format only" type="number">
+        <input id="u_name" placeholder="Enter username" type="text" pattern="[a-zA-Z]" required>
+        <input id="u_dob" placeholder="Enter your date of birth in 'DDMM' format only" pattern="[0-9]" type="number" required>
 
         <button id="btn-result">Check result</button>
 
