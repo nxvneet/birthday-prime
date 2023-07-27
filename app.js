@@ -1,18 +1,48 @@
-var userName = document.querySelector("input[name = u_name]");
-var userDob = document.querySelector("#u_dob");
+var userName = document.querySelector("#u_name");
+var uDob = document.querySelector("#u_dob");
 var btnResult = document.querySelector("#btn-result");
 var outputDiv = document.querySelector("#output");
+var outputDiv2 = document.querySelector("#output2");
 
-// function checkPrime(number){
+// var day;
+// var month;
 
-// if(userDob.value % 2 == 0){
 
-// }
+function checkPrime(number){
 
-// }
-function ou(){
-    outputDiv.innerText = "User name is: " + userName.value
-    console.log("clicked");
+    if(number <= 1){
+        return false;
+    }
+        for(var i= 2 ; i*i<= number ; i++){
+            if(number % i === 0){
+                return false;
+            }
+        }
+    return true;
+
 }
 
-btnResult.addEventListener("click", ou);
+function dateOfBirthPrime(userDob){
+
+var day = Number(userDob.slice(0, 2));
+var month = Number(userDob.slice(2, 4));
+
+return checkPrime(day) && checkPrime(month);
+
+}
+
+
+function result(){
+    var userDob = uDob.value;
+    if(dateOfBirthPrime(userDob) == true){
+        outputDiv.innerHTML = userName.value + " your date of birth is" + "<span class='prime-txt'> PRIME</span>";
+   
+    }
+   else{
+    outputDiv.innerHTML = userName.value + " your date of birth is" + " <span class='not-prime-txt'> NOT PRIME</span>";
+   
+   } 
+    
+}
+
+btnResult.addEventListener("click", result);
