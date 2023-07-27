@@ -1,28 +1,58 @@
-.special-txt{
+body {
+    margin: auto;
+    margin-top: 8rem;
+    width: 720px;
+    max-width: 100%;
+    display: block;
+}
+
+h1 {
+    text-align: center;
+}
+
+.inputs-div {
+    text-align: center;
+}
+
+.special-txt {
     font-style: italic;
 }
-input{
-    margin: 1rem;
+
+input {
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 15px;
+    margin-bottom: 10px;
     height: auto;
     width: 50%;
     display: block;
+    /* text-align: center; */
 }
-#btn-result{
+
+#btn-result {
     margin: 1rem;
 }
-#output{
+
+#output {
     margin: 1rem;
 }
-.prime-txt{
+
+.prime-txt {
     font-size: large;
     font-weight: bold;
     color: #84cc16;
     padding: 4px;
 }
 
-.not-prime-txt{
+.not-prime-txt {
     font-size: large;
     font-weight: bold;
     color: red;
-    padding: 4px; 
+    padding: 4px;
+}
+
+@media only screen and (max-width: 600px) {
+    body {
+        margin: 15rem auto auto;
+    }
 }
