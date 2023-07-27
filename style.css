@@ -13,3 +13,16 @@ input{
 #output{
     margin: 1rem;
 }
+.prime-txt{
+    font-size: large;
+    font-weight: bold;
+    color: #84cc16;
+    padding: 4px;
+}
+
+.not-prime-txt{
+    font-size: large;
+    font-weight: bold;
+    color: red;
+    padding: 4px; 
+}
