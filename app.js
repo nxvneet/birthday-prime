@@ -4,24 +4,15 @@ var btnResult = document.querySelector("#btn-result");
 var outputDiv = document.querySelector("#output");
 var outputDiv2 = document.querySelector("#output2");
 
-// var day;
-// var month;
 
-// function validation(){
 
-//     if(userName != "[a-zA-Z]"){
-//         alert("Username can't have anything other than a-zA-Z - Try again!");
-//         return false;
-//     }
-//     else if(uDob != "[0-9]"){
-//         alert("Date of birth can be added in DDMM format only");
-//         return false;
-//     }
-//     else{
-//         return true;
-//     }
+function isUserNameValid(userName) {
+    return /^[a-zA-Z]+$/.test(userName);
+}
 
-// }
+function isDateOfBirthValid(userDob) {
+    return /^\d{4}$/.test(userDob);
+}
 
 function checkPrime(number) {
 
@@ -49,12 +40,24 @@ function dateOfBirthPrime(userDob) {
 
 function result() {
     var userDob = uDob.value;
-    if (dateOfBirthPrime(userDob) == true) {
-        outputDiv.innerHTML = userName.value + " your date of birth is " + "<span class='prime-txt'> PRIME</span>";
 
+
+    // Validate userDob and userName
+    if (userName === '') {
+        output.innerHTML = "Please enter your name.";
+    } else if (userDob === '') {
+        output.innerHTML = "Please enter your date of birth (in DDMM format).";
+    } else if (!isDateOfBirthValid(userDob)) {
+        output.innerHTML = "Please enter a valid date of birth with exactly 4 digits (0-9).";
+    } else if (!isUserNameValid(userName)) {
+        output.innerHTML = "Please enter a valid name with characters a-z and A-Z only.";
     } else {
-        outputDiv.innerHTML = userName.value + " your date of birth is" + " <span class='not-prime-txt'> NOT PRIME</span>";
-
+        // Proceed with prime check if inputs are valid
+        if (dateOfBirthPrime(userDob)) {
+            output.innerHTML = userName + " your date of birth is " + "<span class='prime-txt'> PRIME</span>";
+        } else {
+            output.innerHTML = userName + " your date of birth is" + " <span class='not-prime-txt'> NOT PRIME</span>";
+        }
     }
 
 }
