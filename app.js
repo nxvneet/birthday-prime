@@ -2,26 +2,9 @@ var userName = document.querySelector("#u_name");
 var uDob = document.querySelector("#u_dob");
 var btnResult = document.querySelector("#btn-result");
 var outputDiv = document.querySelector("#output");
-var outputDiv2 = document.querySelector("#output2");
 
-// var day;
-// var month;
 
-// function validation(){
 
-//     if(userName != "[a-zA-Z]"){
-//         alert("Username can't have anything other than a-zA-Z - Try again!");
-//         return false;
-//     }
-//     else if(uDob != "[0-9]"){
-//         alert("Date of birth can be added in DDMM format only");
-//         return false;
-//     }
-//     else{
-//         return true;
-//     }
-
-// }
 
 function checkPrime(number) {
 
