@@ -54,6 +54,11 @@ input {
     text-align: center;
 }
 
+.error-txt {
+    color: red;
+    font-weight: bold;
+}
+
 @media only screen and (max-width: 600px) {
     body {
         margin: 15rem auto auto;
