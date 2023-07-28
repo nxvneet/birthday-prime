@@ -4,15 +4,24 @@ var btnResult = document.querySelector("#btn-result");
 var outputDiv = document.querySelector("#output");
 var outputDiv2 = document.querySelector("#output2");
 
+// var day;
+// var month;
 
+// function validation(){
 
-function isUserNameValid(userName) {
-    return /^[a-zA-Z]+$/.test(userName);
-}
+//     if(userName != "[a-zA-Z]"){
+//         alert("Username can't have anything other than a-zA-Z - Try again!");
+//         return false;
+//     }
+//     else if(uDob != "[0-9]"){
+//         alert("Date of birth can be added in DDMM format only");
+//         return false;
+//     }
+//     else{
+//         return true;
+//     }
 
-function isDateOfBirthValid(userDob) {
-    return /^\d{4}$/.test(userDob);
-}
+// }
 
 function checkPrime(number) {
 
@@ -40,26 +49,45 @@ function dateOfBirthPrime(userDob) {
 
 function result() {
     var userDob = uDob.value;
+    var userNameValue = userName.value;
 
 
-    // Validate userDob and userName
-    if (userName === '') {
-        output.innerHTML = "Please enter your name.";
-    } else if (userDob === '') {
-        output.innerHTML = "Please enter your date of birth (in DDMM format).";
-    } else if (!isDateOfBirthValid(userDob)) {
-        output.innerHTML = "Please enter a valid date of birth with exactly 4 digits (0-9).";
-    } else if (!isUserNameValid(userName)) {
-        output.innerHTML = "Please enter a valid name with characters a-z and A-Z only.";
+    if (userNameValue === "" && userDob === "") {
+        outputDiv.innerHTML = "<span class='error-txt'>Error: Please fill in both username and date of birth fields.</span>";
+        return;
+    }
+
+
+    if (dateOfBirthPrime(userDob) == true) {
+        outputDiv.innerHTML = userName.value + " your date of birth is " + "<span class='prime-txt'> PRIME</span>";
+
     } else {
-        // Proceed with prime check if inputs are valid
-        if (dateOfBirthPrime(userDob)) {
-            output.innerHTML = userName + " your date of birth is " + "<span class='prime-txt'> PRIME</span>";
-        } else {
-            output.innerHTML = userName + " your date of birth is" + " <span class='not-prime-txt'> NOT PRIME</span>";
-        }
+        outputDiv.innerHTML = userName.value + " your date of birth is" + " <span class='not-prime-txt'> NOT PRIME</span>";
+
     }
 
 }
 
 btnResult.addEventListener("click", result);
+
+userName.addEventListener("input", function() {
+    var userNameValue = userName.value.trim();
+    var userDobValue = uDob.value.trim();
+
+    if (userNameValue !== "" && userDobValue === "") {
+        outputDiv.innerHTML = "<span class='error-txt'>Error: Please fill in the date of birth field.</span>";
+    } else {
+        outputDiv.innerHTML = "";
+    }
+});
+
+uDob.addEventListener("input", function() {
+    var userNameValue = userName.value.trim();
+    var userDobValue = uDob.value.trim();
+
+    if (userNameValue === "" && userDobValue !== "") {
+        outputDiv.innerHTML = "<span class='error-txt'>Error: Please fill in the username field.</span>";
+    } else {
+        outputDiv.innerHTML = "";
+    }
+});
